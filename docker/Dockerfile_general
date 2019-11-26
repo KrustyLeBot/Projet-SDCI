@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y \
 	iproute \
 	git \
     npm \
+    nodejs \
     && npm install express \
     && npm install request \
     && wget http://homepages.laas.fr/smedjiah/tmp/server.js \
