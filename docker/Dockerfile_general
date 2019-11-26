@@ -7,11 +7,11 @@ RUN apt-get update && apt-get install -y \
 	iproute \
 	git \
     npm \
-    && npm install express
-    && npm install request
-    && wget http://homepages.laas.fr/smedjiah/tmp/server.js
-    && wget http://homepages.laas.fr/smedjiah/tmp/gateway.js
-    && wget http://homepages.laas.fr/smedjiah/tmp/device.js
-    && git clone https://github.com/KrustyLeBot/Projet-SDCI.git
+    && npm install express \
+    && npm install request \
+    && wget http://homepages.laas.fr/smedjiah/tmp/server.js \
+    && wget http://homepages.laas.fr/smedjiah/tmp/gateway.js \
+    && wget http://homepages.laas.fr/smedjiah/tmp/device.js \
+    && git clone https://github.com/KrustyLeBot/Projet-SDCI.git \
 
 CMD /bin/bash
