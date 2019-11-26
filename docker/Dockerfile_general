@@ -1,7 +1,7 @@
 FROM node:alpine
 WORKDIR /
 ADD . /
-RUN apk add update && apt-get install -y \
+RUN apk update && apk add -y \
 	net-tools \
     iputils-ping \
 	iproute2 \
