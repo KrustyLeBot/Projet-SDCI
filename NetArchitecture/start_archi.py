@@ -10,9 +10,9 @@ net = Containernet(controller=Controller)
 info('*** Adding controller\n')
 net.addController('c0')
 
-info('*** Adding docker containers using ubuntu:trusty images\n')
-d1 = net.addDocker('d1', dimage="ubuntu:trusty")
-d2 = net.addDocker('d2', dimage="ubuntu:trusty")
+info('*** Adding docker containers using sdci:custom images\n')
+d1 = net.addDocker('d1', dimage="sdci:custom")
+d2 = net.addDocker('d2', dimage="sdci:custom")
 dc = net.addDatacenter("dc")
 
 info('*** Adding switches\n')
