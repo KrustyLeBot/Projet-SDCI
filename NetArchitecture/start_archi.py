@@ -11,18 +11,21 @@ info('*** Adding controller\n')
 net.addController('c0')
 
 info('*** Adding docker containers using sdci:custom images\n')
-d1 = net.addDocker('d1', dimage="sdci:custom")
-d2 = net.addDocker('d2', dimage="sdci:custom")
+d1 = net.addDocker('server', dimage="sdci:custom")
+d2 = net.addDocker('gwi', dimage="sdci:custom")
+d2 = net.addDocker('gwf', dimage="sdci:custom")
 dc = net.addDatacenter("dc")
 
 info('*** Adding switches\n')
 s1 = net.addSwitch('s1')
 s2 = net.addSwitch('s2')
+s2 = net.addSwitch('s3')
 
 info('*** Creating links\n')
-net.addLink(d1, s1)
-net.addLink(s1, s2)
-net.addLink(s2, d2)
+net.addLink(server, s1)
+net.addLink(s1, gwi)
+net.addLink(gwi, s2)
+net.addLink(s2, gwf)
 
 et.addLink(dc, s1)
 
@@ -34,9 +37,6 @@ rapi1.start()
 
 info('*** Starting network\n')
 net.start()
-
-info('*** Testing connectivity\n')
-net.ping([d1, d2])
 
 info('*** Running CLI\n')
 CLI(net)
