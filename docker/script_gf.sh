@@ -1,4 +1,3 @@
-
 node gateway.js --local_ip "${1}" --local_port ${2} --local_name "gwf1" --remote_ip "${3}" --remote_port ${4} --remote_name "gwi1"
 
 node device.js --local_ip "${1}" --local_port 9001 --local_name "dev1" --remote_ip "${1}" --remote_port ${2} --remote_name "gwf1" --send_period 100
