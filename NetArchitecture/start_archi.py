@@ -13,6 +13,7 @@ net.addController('c0')
 X = "krustylebot/repo:sdci"
 
 info('*** Adding docker containers using krustylebot/repo:sdci images\n')
+test = net.addDocker('test', ip='10.0.0.9', dimage=X)
 server = net.addDocker('server', ip='10.0.0.10', dimage=X)
 gwi = net.addDocker('gwi', ip='10.0.0.11', dimage=X)
 gwf = net.addDocker('gwf', ip='10.0.0.12', dimage=X)
@@ -24,6 +25,7 @@ s2 = net.addSwitch('s2')
 #s2 = net.addSwitch('s3')
 
 info('*** Creating links\n')
+net.addLink(test, s1)
 net.addLink(server, s1)
 net.addLink(s1, gwi)
 net.addLink(s1, s2)
