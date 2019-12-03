@@ -10,10 +10,12 @@ net = Containernet(controller=Controller)
 info('*** Adding controller\n')
 net.addController('c0')
 
-info('*** Adding docker containers using sdci:custom images\n')
-server = net.addDocker('server', ip='10.0.0.10', dimage="sdci:custom", dcmd="node server.js --local_ip '10.0.0.10' --local_port 8080 --local_name 'srv'")
-gwi = net.addDocker('gwi', ip='10.0.0.11', dimage="sdci:custom", dcmd="node gateway.js --local_ip '10.0.0.11' --local_port 8181 --local_name 'gwi' --remote_ip '10.0.0.10' --remote_port 8080 --remote_name 'srv'")
-gwf = net.addDocker('gwf', ip='10.0.0.12', dimage="sdci:custom", dcmd="node device.js --local_ip '10.0.0.12' --local_port 9001 --local_name 'dev1' --remote_ip '10.0.0.11' --remote_port 8181 --remote_name 'gwf1' --send_period 100")
+X = "krustylebot/repo:sdci"
+
+info('*** Adding docker containers using krustylebot/repo:sdci images\n')
+server = net.addDocker('server', ip='10.0.0.10', dimage=X)
+gwi = net.addDocker('gwi', ip='10.0.0.11', dimage=X)
+gwf = net.addDocker('gwf', ip='10.0.0.12', dimage=X)
 dc = net.addDatacenter("dc")
 
 info('*** Adding switches\n')
