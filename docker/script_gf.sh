@@ -6,6 +6,8 @@ wget http://homepages.laas.fr/smedjiah/tmp/device.js
 
 node gateway.js --local_ip "${1}" --local_port 8080 --local_name "gwf" --remote_ip "${2}" --remote_port 8080 --remote_name "gwi"
 
+sleep 10
+
 node device.js --local_ip "${1}" --local_port 9001 --local_name "dev1" --remote_ip "${1}" --remote_port 8080 --remote_name "gwf" --send_period 1000
 node device.js --local_ip "${1}" --local_port 9002 --local_name "dev2" --remote_ip "${1}" --remote_port 8080 --remote_name "gwf" --send_period 1000
 node device.js --local_ip "${1}" --local_port 9003 --local_name "dev3" --remote_ip "${1}" --remote_port 8080 --remote_name "gwf" --send_period 1000

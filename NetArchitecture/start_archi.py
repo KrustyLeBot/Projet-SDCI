@@ -15,13 +15,9 @@ X = "krustylebot/repo:sdci_containernet"
 
 info('*** Adding docker containers using krustylebot/repo:sdci_containernet images\n')
 test = net.addDocker('test', ip='10.0.0.9', dimage=X)
-time.sleep(5)
 server = net.addDocker('server', ip='10.0.0.10', dimage=X, dcmd="sh -c 'cd /Projet-SDCI/docker && git pull && sh script_server.sh 10.0.0.10; tail -f /dev/null'")
-time.sleep(10)
 gwi = net.addDocker('gwi', ip='10.0.0.11', dimage=X, dcmd="sh -c 'cd /Projet-SDCI/docker && git pull && sh script_gi.sh 10.0.0.11 10.0.0.10; tail -f /dev/null'")
-time.sleep(10)
 gwf = net.addDocker('gwf', ip='10.0.0.12', dimage=X, dcmd="sh -c 'cd /Projet-SDCI/docker && git pull && sh script_gf.sh 10.0.0.12 10.0.0.11; tail -f /dev/null'")
-time.sleep(10)
 #dc = net.addDatacenter("dc")
 
 info('*** Adding switches\n')
