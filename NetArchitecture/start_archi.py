@@ -25,7 +25,7 @@ s1 = net.addSwitch('s1')
 info('*** Creating links\n')
 net.addLink(test, s1)
 net.addLink(server, s1)
-net.addLink(gwi, s2)
+net.addLink(gwi, s1)
 net.addLink(gwf, s1)
 
 #net.addLink(dc, s1)
