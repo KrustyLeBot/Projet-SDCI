@@ -1,4 +1,4 @@
-drm gateway.js
+rm gateway.js
 rm device.js
 
 wget http://homepages.laas.fr/smedjiah/tmp/gateway.js
