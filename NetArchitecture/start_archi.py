@@ -10,27 +10,23 @@ net = Containernet(controller=Controller)
 info('*** Adding controller\n')
 net.addController('c0')
 
-X = "krustylebot/repo:sdci"
+X = "krustylebot/repo:sdci_containernet"
 
-info('*** Adding docker containers using krustylebot/repo:sdci images\n')
+info('*** Adding docker containers using krustylebot/repo:sdci_containernet images\n')
 test = net.addDocker('test', ip='10.0.0.9', dimage=X)
-server = net.addDocker('server', ip='10.0.0.10', dimage=X) #cd Projet-SDCI/docker && git pull && ./script_server.sh 10.0.0.10 &
-gwi = net.addDocker('gwi', ip='10.0.0.11', dimage=X) #cd Projet-SDCI/docker && git pull && ./script_gi.sh 10.0.0.11 10.0.0.10 &
-gwf = net.addDocker('gwf', ip='10.0.0.12', dimage=X) #cd Projet-SDCI/docker && git pull && ./script_gf.sh 10.0.0.12 10.0.0.11 &
+server = net.addDocker('server', ip='10.0.0.10', dimage=X, dcmd="cd Projet-SDCI/docker && git pull && ./script_server.sh 10.0.0.10 &")
+gwi = net.addDocker('gwi', ip='10.0.0.11', dimage=X, dcmd="cd Projet-SDCI/docker && git pull && ./script_gi.sh 10.0.0.11 10.0.0.10 &")
+gwf = net.addDocker('gwf', ip='10.0.0.12', dimage=X, dcmd="cd Projet-SDCI/docker && git pull && ./script_gf.sh 10.0.0.12 10.0.0.11 &")
 #dc = net.addDatacenter("dc")
 
 info('*** Adding switches\n')
 s1 = net.addSwitch('s1')
-s2 = net.addSwitch('s2')
-#s2 = net.addSwitch('s3')
 
 info('*** Creating links\n')
 net.addLink(test, s1)
 net.addLink(server, s1)
-net.addLink(s1, gwi)
-net.addLink(s1, s2)
 net.addLink(gwi, s2)
-net.addLink(s2, gwf)
+net.addLink(gwf, s1)
 
 #net.addLink(dc, s1)
 
