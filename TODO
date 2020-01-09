@@ -1,0 +1,9 @@
+Finir leakybucket
+Faire le soft de monitoring (on lui donne une IP a checker et il retourne un json propre des données)
+Combiner leakybucket et loadbalancer en une seule app
+Deployer une VNF avec VIM EMU par l'api REST
+
+Comprendre MAPK
+Ajouter le monitoring aux symptomes
+Ajouter les appels REST a VIM EMU pour deployer la VNF master
+Ajouter l'appel REST a la VNF master pour choisir loadbalancer ou leakybucket
