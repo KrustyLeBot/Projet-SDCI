@@ -22,7 +22,7 @@ app.get('/monitor/:ip/:port', function(req, res) {
     for(i = 0; i<10; i++){
     	delay += monitor(ip, port);
     }
-    return delay/10.0
+    res.write(delay/10.0);
 });
 
 app.listen(8686 , function () {
