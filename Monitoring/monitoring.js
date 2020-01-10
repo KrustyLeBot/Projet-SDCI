@@ -19,11 +19,11 @@ app.get('/monitor/:ip/:port', function(req, res) {
     var port = req.params.port;
     var i;
     var delay = 0;
-    for(i = 0; i<10; i++){
+    for(i = 0; i<100; i++){
     	delay += monitor(ip, port);
     }
-    delay = delay/10.0;
-    res.write("Done" + delay +"\n");
+    delay = delay/100.0;
+    res.write(delay.toString());
     res.end();
 });
 
