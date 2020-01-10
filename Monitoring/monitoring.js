@@ -23,8 +23,8 @@ app.get('/monitor/:ip/:port', function(req, res) {
     	delay += monitor(ip, port);
     }
     res.write("Done");
+    res.write(delay/10.0);
     res.end();
-    //res.write(delay/10.0);
 });
 
 app.get('/ping', function(req, res) {
