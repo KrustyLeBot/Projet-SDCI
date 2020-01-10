@@ -22,8 +22,8 @@ app.get('/monitor/:ip/:port', function(req, res) {
     for(i = 0; i<10; i++){
     	delay += monitor(ip, port);
     }
-    res.write("Done");
-    res.write(delay/10.0);
+    delay = delay/10.0;
+    res.write("Done" + delay +"\n");
     res.end();
 });
 
