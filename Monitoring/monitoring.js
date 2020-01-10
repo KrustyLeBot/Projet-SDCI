@@ -23,9 +23,16 @@ app.get('/monitor/:ip/:port', function(req, res) {
     	delay += monitor(ip, port);
     }
     res.write("Done");
+    res.end();
     //res.write(delay/10.0);
 });
 
-app.listen(8686 , function () {
-    console.log('listening on : ' + 8686 );
+app.get('/ping', function(req, res) {
+    console.log('ping recu');
+    res.write("Pong");
+    res.end();
+});
+
+app.listen(8080 , function () {
+    console.log('listening on : ' + 8080 );
 });
