@@ -1,7 +1,9 @@
 import http.server
 import socketserver
-from threading import Thread
+from threading import Thread, Lock
 from time import sleep
+
+lock = Lock()
 
 #1 => pas encore configuree, 2 => loadbalancer, 3 => leakybucket
 vnf_type = 1
@@ -24,7 +26,9 @@ class MonThread (Thread):
 		global vnf_buffer
 		while(1):
 			if(len(vnf_buffer)>0):
+				lock.acquire()
 				tmp = vnf_buffer[0]
+				lock.release()
 				print("on vide")
 				print(tmp.path)
 				tmp.send_response(301)
@@ -114,7 +118,9 @@ class myHandler(http.server.SimpleHTTPRequestHandler):
 		######################################################################
 		elif(vnf_type == '3'):
 			print("Ajout " + self.path)
+			lock.acquire()
 			vnf_buffer.append(self)
+			lock.acquire()
 		######################################################################
 
 		
