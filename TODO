@@ -1,7 +1,3 @@
-Finir leakybucket
-Combiner leakybucket et loadbalancer en une seule app
-Deployer une VNF avec VIM EMU par l'api REST
-
 Comprendre MAPK
 Ajouter le monitoring aux symptomes
 Ajouter les appels REST a VIM EMU pour deployer la VNF master
