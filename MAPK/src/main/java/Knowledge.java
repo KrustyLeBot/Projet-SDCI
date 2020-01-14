@@ -1,3 +1,5 @@
+knowledge
+
 import org.h2.tools.DeleteDbFiles;
 
 import java.sql.*;
@@ -36,9 +38,10 @@ class Knowledge {
     /*TODO : edit symptom, rfc, workflow_lists, plan*/
     private static final List<String> symptom = Arrays.asList("N/A", "NOK", "OK");
     private static final List<String> rfc = Arrays.asList("DoNotDoAnything", "DecreaseLatencyIn" + gw);
-    private static final List<String> workflow_lists = Arrays.asList("UC1", "UC2/UC3", "UC4/UC5/UC6");
-    private static final List<String> plan = Arrays.asList("A", "B", "C");
-    private final Map<String, String> gwinfo = new HashMap<>();
+    private static final List<String> workflow_lists = Arrays.asList("UC1", "UC2");
+    private static final List<String> plan = Arrays.asList("A", "B");
+    private final Map<String, String> gwi_info = new HashMap<>();
+    //private final Map<String, String> server_info = new HashMap<>();
     private final List<Map<String, String>> gwsinfo = new ArrayList<>();
     private final String olddestip = "192.168.0.2";
     private String newdestip;
@@ -57,13 +60,17 @@ class Knowledge {
         store_plans();
         store_execution_workflow();
         //TODO : update gwinfo
-        gwinfo.put("name", "gw");
-        gwinfo.put("image", "alpine:latest");
-        gwinfo.put("net", "new_network");
+        gwi_info.put("name", "gwi1");
+        gwi_info.put("image", "krustylebot/repo:sdci_containernet");
+        gwi_info.put("net", "net");
 
-        gwsinfo.add(0, gwinfo);
-        gwsinfo.add(1, gwinfo);
-        gwsinfo.add(2, gwinfo);
+        gwsinfo.add(0, gwi_info);
+        
+        //server_info.put("name", "server");
+        //server_info.put("image", "krustylebot/repo:sdci_containernet");
+        //server_info.put("net", "net");
+        
+        //gwsinfo.add(1, server_info);
 
         Main.logger(this.getClass().getSimpleName(), "Knowledge Starting");
 
@@ -354,7 +361,7 @@ class Knowledge {
     }
 
     public Map<String, String> getGwinfo() {
-        return gwinfo;
+        return gwi_info;
     }
 
     public List<Map<String, String>> getGwsinfo() {

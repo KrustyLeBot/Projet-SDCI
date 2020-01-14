@@ -1,3 +1,5 @@
+Monitor
+
 import com.github.signaflo.math.operations.DoubleFunctions;
 import com.github.signaflo.timeseries.TimeSeries;
 import com.github.signaflo.timeseries.forecast.Forecast;
@@ -7,10 +9,19 @@ import de.vandermeer.asciitable.AsciiTable;
 import de.vandermeer.asciitable.CWC_LongestWord;
 import de.vandermeer.asciithemes.a7.A7_Grids;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 //
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 //* @author couedrao on 25/11/2019.
 
@@ -84,7 +95,7 @@ class Monitor {
                 try {
                     //TODO: Remove this
                     Thread.sleep(period);
-                    Main.shared_knowledge.insert_in_tab(new java.sql.Timestamp(new java.util.Date().getTime()), get_fake_data());
+                    Main.shared_knowledge.insert_in_tab(new java.sql.Timestamp(new java.util.Date().getTime()), get_data());
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -97,6 +108,28 @@ class Monitor {
     private int get_data() {
         //Call Sensors
         /*TODO*/
+        URL url;
+        try {
+            url = new URL("http://localhost:8888/monitor/10.0.0.11/8080");
+            HttpURLConnection httpCon = (HttpURLConnection) url.openConnection();
+            httpCon.setRequestMethod("GET");
+
+            BufferedReader in = new BufferedReader(new InputStreamReader(httpCon.getInputStream()));
+            String line;
+            double latency = 0.0;
+            while ((line = in.readLine()) != null) {
+                latency = Double.parseDouble(line);
+            }
+            in.close();
+            
+        } catch (MalformedURLException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        } catch (IOException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+        
         return 0;
     }
 
