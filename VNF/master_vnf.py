@@ -114,7 +114,7 @@ class myHandler(http.server.SimpleHTTPRequestHandler):
 		######################################################################
 
 
-		#Loeakybucket
+		#Leakybucket
 		######################################################################
 		elif(vnf_type == '3'):
 			print("Ajout " + self.path)
