@@ -131,7 +131,26 @@ class Monitor {
             e1.printStackTrace();
         }
         */
-        
+        try {
+
+            Process process = Runtime.getRuntime().exec("sudo docker exec mn.monitoring curl http://localhost:8080/ping");
+            StringBuilder output = new StringBuilder();
+
+            BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(process.getInputStream()));
+
+            String line;
+            while ((line = reader.readLine()) != null) {
+                output.append(line + "\n");
+            }
+            Main.logger(this.getClass().getSimpleName(), "res: " + output);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         return 0;
     }
 
