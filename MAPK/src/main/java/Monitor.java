@@ -104,36 +104,12 @@ class Monitor {
         ).start();
     }
 
-    private int get_data() {
+    private double get_data() {
         //Call Sensors
         /*TODO*/
-        Main.logger(this.getClass().getSimpleName(), "GET DATA EXECUTION");
-        /*
-        URL url;
-        try {
-            url = new URL("http://localhost:8888/monitor/10.0.0.11/8080");
-            HttpURLConnection httpCon = (HttpURLConnection) url.openConnection();
-            httpCon.setRequestMethod("GET");
-
-            BufferedReader in = new BufferedReader(new InputStreamReader(httpCon.getInputStream()));
-            String line;
-            double latency = 0.0;
-            while ((line = in.readLine()) != null) {
-                latency = Double.parseDouble(line);
-            }
-            in.close();
-            
-        } catch (MalformedURLException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        } catch (IOException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
-        */
         try {
 
-            Process process = Runtime.getRuntime().exec("sudo docker exec mn.monitoring curl http://localhost:8080/ping");
+            Process process = Runtime.getRuntime().exec("sudo docker exec mn.monitoring curl http://localhost:8080/10.0.0.11/8080");
             StringBuilder output = new StringBuilder();
 
             BufferedReader reader = new BufferedReader(
@@ -143,13 +119,11 @@ class Monitor {
             while ((line = reader.readLine()) != null) {
                 output.append(line + "\n");
             }
-            Main.logger(this.getClass().getSimpleName(), "res: " + output);
-
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return 0;
+        return Double.parseDouble(output.toString());
     }
 
     private double get_fake_data() {
