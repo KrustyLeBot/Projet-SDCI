@@ -16,7 +16,6 @@ net = DCNetwork(monitor=False, enable_learning=True)
 X = "krustylebot/repo:sdci_containernet"
 
 info('*** Adding docker containers using krustylebot/repo:sdci_containernet images\n')
-test = net.addDocker('test', ip='10.0.0.9', dimage=X)
 server = net.addDocker('server', ip='10.0.0.10', dimage=X, dcmd="sh -c 'cd /Projet-SDCI/docker && git pull && sh script_server.sh 10.0.0.10; tail -f /dev/null'")
 gwi1 = net.addDocker('gwi1', ip='10.0.0.11', dimage=X, dcmd="sh -c 'cd /Projet-SDCI/docker && git pull && sh script_gi.sh 10.0.0.11 10.0.0.10 gwi1; tail -f /dev/null'")
 gwf1 = net.addDocker('gwf1', ip='10.0.0.12', dimage=X, dcmd="sh -c 'cd /Projet-SDCI/docker && git pull && sh script_gf.sh 10.0.0.12 10.0.0.11 gwf1 gwi1 300; tail -f /dev/null'")
@@ -31,7 +30,6 @@ info('*** Adding switches\n')
 s1 = net.addSwitch('s1')
 
 info('*** Creating links\n')
-net.addLink(test, s1, delay="20ms")
 net.addLink(server, s1, delay="20ms")
 net.addLink(gwi1, s1, delay="20ms")
 net.addLink(gwf1, s1, delay="20ms")

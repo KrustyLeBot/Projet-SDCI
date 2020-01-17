@@ -58,7 +58,7 @@ class Knowledge {
         store_plans();
         store_execution_workflow();
         //TODO : update gwinfo
-        gwi_info.put("name", "gwi1");
+        gwi_info.put("name", "gwi2_virtualisee");
         gwi_info.put("image", "krustylebot/repo:sdci_containernet");
         gwi_info.put("net", "net");
 
