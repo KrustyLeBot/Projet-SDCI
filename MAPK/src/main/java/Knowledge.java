@@ -1,5 +1,3 @@
-knowledge
-
 import org.h2.tools.DeleteDbFiles;
 
 import java.sql.*;

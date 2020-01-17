@@ -1,5 +1,3 @@
-Monitor
-
 import com.github.signaflo.math.operations.DoubleFunctions;
 import com.github.signaflo.timeseries.TimeSeries;
 import com.github.signaflo.timeseries.forecast.Forecast;
@@ -108,6 +106,8 @@ class Monitor {
     private int get_data() {
         //Call Sensors
         /*TODO*/
+        Main.logger(this.getClass().getSimpleName(), "GET DATA EXECUTION");
+        /*
         URL url;
         try {
             url = new URL("http://localhost:8888/monitor/10.0.0.11/8080");
@@ -129,6 +129,7 @@ class Monitor {
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }
+        */
         
         return 0;
     }
