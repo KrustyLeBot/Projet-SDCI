@@ -122,8 +122,8 @@ class Monitor {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        return Double.parseDouble(output.toString());
+        Double res = Double.parseDouble(output);
+        return res;
     }
 
     private double get_fake_data() {
