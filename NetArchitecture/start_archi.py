@@ -23,7 +23,7 @@ gwf1 = net.addDocker('gwf1', ip='10.0.0.12', dimage=X, dcmd="sh -c 'cd /Projet-S
 gwf2 = net.addDocker('gwf2', ip='10.0.0.13', dimage=X, dcmd="sh -c 'cd /Projet-SDCI/docker && git pull && sh script_gf.sh 10.0.0.13 10.0.0.11 gwf2 gwi1 300; tail -f /dev/null'")
 gwf3 = net.addDocker('gwf3', ip='10.0.0.14', dimage=X, dcmd="sh -c 'cd /Projet-SDCI/docker && git pull && sh script_gf.sh 10.0.0.14 10.0.0.11 gwf3 gwi1 300; tail -f /dev/null'")
 
-monitoring = net.addDocker('monitoring', ip='10.0.0.15', dimage=X, dcmd="sh -c 'cd /Projet-SDCI && git pull; cd Monitoring; sh monitoring.sh; tail -f /dev/null'")
+monitoring = net.addDocker('monitoring', ip='10.0.0.15', port=80, dimage=X, dcmd="sh -c 'cd /Projet-SDCI && git pull; cd Monitoring; sh monitoring.sh; tail -f /dev/null'")
 
 dc = net.addDatacenter("dc")
 
