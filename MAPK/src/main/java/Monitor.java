@@ -107,6 +107,7 @@ class Monitor {
     private double get_data() {
         //Call Sensors
         /*TODO*/
+        Double res = 0.0;
         try {
 
             Process process = Runtime.getRuntime().exec("sudo docker exec mn.monitoring curl http://localhost:8080/10.0.0.11/8080");
@@ -119,10 +120,13 @@ class Monitor {
             while ((line = reader.readLine()) != null) {
                 output.append(line + "\n");
             }
+
+            res = Double.parseDouble(output);
+            
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Double res = Double.parseDouble(output);
+        
         return res;
     }
 
