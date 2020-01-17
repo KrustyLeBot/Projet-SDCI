@@ -4,7 +4,7 @@ app.use(express.json()) // for parsing application/json
 var request = require('request');
 const si = require('systeminformation');
 
-var offset = 0.0;
+var offset = 0;
 
 
 function monitor(ip, port) {
