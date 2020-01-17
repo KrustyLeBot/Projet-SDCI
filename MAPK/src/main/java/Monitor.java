@@ -63,6 +63,9 @@ class Monitor {
                 //print_nice_rs(rs);
                 double[] prediction = predict_next_lat(rs);
                 boolean isOk = true;
+
+                Main.logger(this.getClass().getSimpleName(), "CHECKING SYMPTOM : " + prediction + " / " + Knowledge.gw_lat_threshold);
+
                 for (int j = 0; j < Knowledge.horizon; j++) {
                     if (prediction[j] > Knowledge.gw_lat_threshold) {
                         Main.logger(this.getClass().getSimpleName(), "Symptom --> To Analyse : " + symptom.get(1));
