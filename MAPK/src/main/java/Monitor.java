@@ -120,7 +120,7 @@ class Monitor {
             while ((line = reader.readLine()) != null) {
                 output.append(line + "\n");
             }
-            res = (Double) Float.parseFloat(output.toString());
+            res = Double.parseDouble(output.toString());
             Main.logger(this.getClass().getSimpleName(), "Ping = " + res);
 
         } catch (IOException e) {
