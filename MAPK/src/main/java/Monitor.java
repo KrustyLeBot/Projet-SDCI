@@ -121,8 +121,8 @@ class Monitor {
                 output.append(line + "\n");
             }
 
-            res = Double.parseDouble(output);
-            
+            res = Double.parseDouble(output.toString());
+
         } catch (IOException e) {
             e.printStackTrace();
         }
