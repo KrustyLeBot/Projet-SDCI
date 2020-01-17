@@ -37,7 +37,7 @@ app.get('/ping', function(req, res) {
 });
 
 app.get('/offset/:valeur', function(req, res) {
-    offset = valeur;
+    offset = req.params.valeur;
     res.write("Done");
     res.end();
 });
