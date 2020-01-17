@@ -4,6 +4,8 @@ app.use(express.json()) // for parsing application/json
 var request = require('request');
 const si = require('systeminformation');
 
+var offset = 0.0;
+
 
 function monitor(ip, port) {
     console.log('ip : ' + ip );
@@ -22,7 +24,8 @@ app.get('/monitor/:ip/:port', function(req, res) {
     for(i = 0; i<100; i++){
     	delay += monitor(ip, port);
     }
-    delay = delay/100.0;
+    delay = offset + (delay/100.0);
+
     res.write(delay.toString());
     res.end();
 });
@@ -30,6 +33,12 @@ app.get('/monitor/:ip/:port', function(req, res) {
 app.get('/ping', function(req, res) {
     console.log('ping recu');
     res.write("Pong");
+    res.end();
+});
+
+app.get('/offset/:valeur', function(req, res) {
+    offset = valeur;
+    res.write("Done");
     res.end();
 });
 
