@@ -23,7 +23,6 @@ class MANOAPI {
             Main.logger(this.getClass().getSimpleName(), "\t" + e.getKey() + " : " + e.getValue());
         }
         //TODO
-        /*
         URL url;
         try {
             url = new URL("http://127.0.0.1:5001/restapi/compute/cvim1/new_vnf");
@@ -51,6 +50,7 @@ class MANOAPI {
                 }
             }
             in.close();
+            Main.logger(this.getClass().getSimpleName(), "IP GW VIRTUALISEE: " + ip);
             
         } catch (MalformedURLException e1) {
             // TODO Auto-generated catch block
@@ -59,7 +59,7 @@ class MANOAPI {
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }
-        */
+        
         return ip;
     }
 
