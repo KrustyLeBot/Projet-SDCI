@@ -25,7 +25,7 @@ class MANOAPI {
         //TODO
         URL url;
         try {
-            Process process = Runtime.getRuntime().exec("vim-emu compute start -d dc -n gw2_virtualisee -i krustylebot/repo:sdci_containernet");
+            Process process = Runtime.getRuntime().exec("vim-emu compute start -d dc -n gw2v -i krustylebot/repo:sdci_containernet");
             StringBuilder output = new StringBuilder();
 
             BufferedReader reader = new BufferedReader(
