@@ -41,7 +41,6 @@ class MANOAPI {
                         ip = split_list[split_list.length-1];
                     }
                 }
-                in.close();
                 Main.logger(this.getClass().getSimpleName(), "IP GW VIRTUALISEE: " + ip);
                 
             } catch (MalformedURLException e1) {
