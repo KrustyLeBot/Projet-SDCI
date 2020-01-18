@@ -34,13 +34,13 @@ class MANOAPI {
             String res;
             String line;
             while ((line = reader.readLine()) != null) {
-                Pattern pattern = Pattern.compile("\"ip\": \"10.0.0.[0-9]\"");
+                Pattern pattern = Pattern.compile("u'ip': u'10.0.0.[0-9]");
                 Matcher matcher = pattern.matcher(line);
 
                 Main.logger(this.getClass().getSimpleName(), "LINE: " + line);
                 
                 if(matcher.find()){
-                    String[] split_list = line.split("\"",0);
+                    String[] split_list = line.split("'",0);
                     ip = split_list[split_list.length-1];
                 }
             }
