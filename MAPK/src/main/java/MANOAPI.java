@@ -36,12 +36,11 @@ class MANOAPI {
             while ((line = reader.readLine()) != null) {
                 Pattern pattern = Pattern.compile("u'ip': u'10.0.0.[0-9]");
                 Matcher matcher = pattern.matcher(line);
-
-                Main.logger(this.getClass().getSimpleName(), "LINE: " + line);
                 
                 if(matcher.find()){
                     String[] split_list = line.split("'",0);
-                    Main.logger(this.getClass().getSimpleName(), "LIST: " + split_list);
+                    Main.logger(this.getClass().getSimpleName(), "LINE: " + line);
+                    Main.logger(this.getClass().getSimpleName(), "LINE: " + split_list);
                     ip = split_list[split_list.length-1];
                 }
             }
