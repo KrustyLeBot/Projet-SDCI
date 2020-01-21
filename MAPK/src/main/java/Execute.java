@@ -59,7 +59,7 @@ class Execute {
                         Main.logger(this.getClass().getSimpleName(), "IP GW: " + newgwsip.get(1));
 
                         Main.logger(this.getClass().getSimpleName(), "Redirecting Traffic");
-                        status = sdnctlrapi.redirect_traffic(Main.shared_knowledge.getOlddestip(), Main.shared_knowledge.getNewdestip());
+                        status = sdnctlrapi.redirect_traffic(Main.shared_knowledge.getOlddestip(), newgwsip.get(0));
                         Main.logger(this.getClass().getSimpleName(), status);
                         break;
 

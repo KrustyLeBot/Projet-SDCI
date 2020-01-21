@@ -41,7 +41,7 @@ class Knowledge {
     private final Map<String, String> gwi_info = new HashMap<>();
     //private final Map<String, String> server_info = new HashMap<>();
     private final List<Map<String, String>> gwsinfo = new ArrayList<>();
-    private final String olddestip = "192.168.0.2";
+    private final String olddestip = "10.0.0.11";
     private String newdestip;
     private String oldgwip;
     private String lbip;
