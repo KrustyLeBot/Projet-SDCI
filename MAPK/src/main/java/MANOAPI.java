@@ -32,9 +32,12 @@ class MANOAPI {
 
             String res;
             String line;
+            Main.logger(this.getClass().getSimpleName(), "RETOUR CREATION GW");
             while ((line = reader.readLine()) != null) {
                 Pattern pattern = Pattern.compile("u'ip': u'10.0.0.[0-9]");
                 Matcher matcher = pattern.matcher(line);
+
+                Main.logger(this.getClass().getSimpleName(), "LINE: " + line);
                 
                 if(matcher.find()){
                     String[] split_list = line.split("'",0);
@@ -58,6 +61,7 @@ class MANOAPI {
         List<String> ips = new ArrayList<>();
         //TODO
         String ip = "192.168.0." + (new Random().nextInt(253) + 1);
+
         try {
             Process process = Runtime.getRuntime().exec("vim-emu compute start -d dc -n loadbalancer -i krustylebot/repo:sdci_containernet");
             StringBuilder output = new StringBuilder();
@@ -67,9 +71,13 @@ class MANOAPI {
 
             String res;
             String line;
+            Main.logger(this.getClass().getSimpleName(), "RETOUR CREATION LB");
+
             while ((line = reader.readLine()) != null) {
                 Pattern pattern = Pattern.compile("u'ip': u'10.0.0.[0-9]");
                 Matcher matcher = pattern.matcher(line);
+
+                Main.logger(this.getClass().getSimpleName(), "LINE: " + line);
                 
                 if(matcher.find()){
                     String[] split_list = line.split("'",0);
