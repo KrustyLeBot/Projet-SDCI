@@ -42,15 +42,13 @@ class Execute {
                         String newdestip = manoapi.deploy_gw(Main.shared_knowledge.getGwinfo());
                         Main.shared_knowledge.setNewdestip(newdestip);
                         Main.shared_knowledge.setOldgwip(newdestip);
-
                         Main.logger(this.getClass().getSimpleName(), "Redirecting Traffic");
                         String status = sdnctlrapi.redirect_traffic(Main.shared_knowledge.getOlddestip(), Main.shared_knowledge.getNewdestip());
                         Main.logger(this.getClass().getSimpleName(), status);
-                        
                         break;
                     case "UC3":
                         Main.logger(this.getClass().getSimpleName(), "Redirecting Traffic");
-                        String status = sdnctlrapi.redirect_traffic(Main.shared_knowledge.getOlddestip(), Main.shared_knowledge.getNewdestip());
+                        status = sdnctlrapi.redirect_traffic(Main.shared_knowledge.getOlddestip(), Main.shared_knowledge.getNewdestip());
                         Main.logger(this.getClass().getSimpleName(), status);
                         break;
                     case "UC2":
