@@ -40,7 +40,7 @@ class MANOAPI {
                 if(matcher.find()){
                     String[] split_list = line.split("'",0);
                     Main.logger(this.getClass().getSimpleName(), "LINE: " + line);
-                    Main.logger(this.getClass().getSimpleName(), "LINE: " + split_list);
+                    Main.logger(this.getClass().getSimpleName(), "LINE: " + split_list.toString());
                     ip = split_list[split_list.length-1];
                 }
             }
