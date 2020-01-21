@@ -63,7 +63,7 @@ class MANOAPI {
         String ip = "192.168.0." + (new Random().nextInt(253) + 1);
 
         try {
-            Process process = Runtime.getRuntime().exec("vim-emu compute start -d dc -n loadbalancer -i krustylebot/repo:sdci_containernet");
+            Process process = Runtime.getRuntime().exec("vim-emu compute start -d dc -n LBv -i krustylebot/repo:sdci_containernet");
             StringBuilder output = new StringBuilder();
 
             BufferedReader reader = new BufferedReader(
