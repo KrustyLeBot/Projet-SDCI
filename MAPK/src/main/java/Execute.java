@@ -37,18 +37,23 @@ class Execute {
                     case "UC1":
                         Main.logger(this.getClass().getSimpleName(), "Nothing to do");
                         break;
-                    case "UC2":
+                    case "UC4":
                         Main.logger(this.getClass().getSimpleName(), "Deploying GW");
                         String newdestip = manoapi.deploy_gw(Main.shared_knowledge.getGwinfo());
                         Main.shared_knowledge.setNewdestip(newdestip);
                         Main.shared_knowledge.setOldgwip(newdestip);
+
+                        Main.logger(this.getClass().getSimpleName(), "Redirecting Traffic");
+                        String status = sdnctlrapi.redirect_traffic(Main.shared_knowledge.getOlddestip(), Main.shared_knowledge.getNewdestip());
+                        Main.logger(this.getClass().getSimpleName(), status);
+                        
                         break;
                     case "UC3":
                         Main.logger(this.getClass().getSimpleName(), "Redirecting Traffic");
                         String status = sdnctlrapi.redirect_traffic(Main.shared_knowledge.getOlddestip(), Main.shared_knowledge.getNewdestip());
                         Main.logger(this.getClass().getSimpleName(), status);
                         break;
-                    case "UC4":
+                    case "UC2":
                         Main.logger(this.getClass().getSimpleName(), "Deploying LB+GWs");
                         List<String> newgwsip = manoapi.deploy_multi_gws_and_lb(Main.shared_knowledge.getGwsinfo());
                         Main.shared_knowledge.setLbip(newgwsip.get(0));
