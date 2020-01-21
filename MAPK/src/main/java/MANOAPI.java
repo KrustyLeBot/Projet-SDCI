@@ -57,6 +57,7 @@ class MANOAPI {
     List<String> deploy_multi_gws_and_lb(List<Map<String, String>> vnfsinfos) {
         List<String> ips = new ArrayList<>();
         //TODO
+        String ip = "192.168.0." + (new Random().nextInt(253) + 1);
         try {
             Process process = Runtime.getRuntime().exec("vim-emu compute start -d dc -n loadbalancer -i krustylebot/repo:sdci_containernet");
             StringBuilder output = new StringBuilder();
@@ -84,6 +85,7 @@ class MANOAPI {
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }
+        ips.add(ip);
 
 
         for (Map<String, String> vnfsinfo : vnfsinfos) {
