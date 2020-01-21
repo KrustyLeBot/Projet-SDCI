@@ -39,13 +39,7 @@ class MANOAPI {
                 
                 if(matcher.find()){
                     String[] split_list = line.split("'",0);
-                    Main.logger(this.getClass().getSimpleName(), "LINE: " + line);
-                    Main.logger(this.getClass().getSimpleName(), "0: " + split_list[0]);
-                    Main.logger(this.getClass().getSimpleName(), "1: " + split_list[1]);
-                    Main.logger(this.getClass().getSimpleName(), "2: " + split_list[2]);
-                    Main.logger(this.getClass().getSimpleName(), "3: " + split_list[3]);
-                    Main.logger(this.getClass().getSimpleName(), "4: " + split_list[4]);
-                    ip = split_list[split_list.length-1];
+                    ip = split_list[3].split("/")[0];
                 }
             }
             Main.logger(this.getClass().getSimpleName(), "IP GW VIRTUALISEE: " + ip);
