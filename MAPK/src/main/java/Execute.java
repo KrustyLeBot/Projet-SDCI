@@ -54,13 +54,16 @@ class Execute {
                         Main.logger(this.getClass().getSimpleName(), "Deploying LB+GWs");
                         List<String> newgwsip = manoapi.deploy_multi_gws_and_lb(Main.shared_knowledge.getGwsinfo());
                         Main.shared_knowledge.setLbip(newgwsip.get(0));
-                        Main.shared_knowledge.setNewgwsip(newgwsip.subList(1, newgwsip.size()));
+
+                        Main.logger(this.getClass().getSimpleName(), "IP LB: " + newgwsip.get(0));
+                        Main.logger(this.getClass().getSimpleName(), "IP GW: " + newgwsip.get(1));
+
                         Main.logger(this.getClass().getSimpleName(), "Redirecting Traffic");
                         status = sdnctlrapi.redirect_traffic(Main.shared_knowledge.getOlddestip(), Main.shared_knowledge.getNewdestip());
                         Main.logger(this.getClass().getSimpleName(), status);
                         break;
 
-                        
+
                     case "UC5":
                         Main.logger(this.getClass().getSimpleName(), "Inserting a loadbalancer");
                         status = sdnctlrapi.insert_a_loadbalancer(Main.shared_knowledge.getOldgwip(), Main.shared_knowledge.getLbip(), Main.shared_knowledge.getNewgwsip());
