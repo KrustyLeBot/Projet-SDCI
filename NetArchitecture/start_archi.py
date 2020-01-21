@@ -17,7 +17,7 @@ X = "krustylebot/repo:sdci_containernet"
 
 info('*** Adding docker containers using krustylebot/repo:sdci_containernet images\n')
 server = net.addDocker('server', ip='10.0.0.10', dimage=X, dcmd="sh -c 'cd /Projet-SDCI/docker && git pull && sh script_server.sh 10.0.0.10; tail -f /dev/null'")
-gwi1 = net.addDocker('gwi1', ip='10.0.0.11', dimage=X, dcmd="sh -c 'cd /Projet-SDCI/docker && git pull && sh script_gi.sh 10.0.0.11 10.0.0.10 gwi1; tail -f /dev/null'")
+gwi1 = net.addDocker('gwi1', ip='10.0.0.11', dimage=X, dcmd="sh -c 'cd /Projet-SDCI/docker && git pull && sh script_gi.sh 10.0e.0.11 10.0.0.10 gwi1; tail -f /dev/null'")
 gwf1 = net.addDocker('gwf1', ip='10.0.0.12', dimage=X, dcmd="sh -c 'cd /Projet-SDCI/docker && git pull && sh script_gf.sh 10.0.0.12 10.0.0.11 gwf1 gwi1 300; tail -f /dev/null'")
 gwf2 = net.addDocker('gwf2', ip='10.0.0.13', dimage=X, dcmd="sh -c 'cd /Projet-SDCI/docker && git pull && sh script_gf.sh 10.0.0.13 10.0.0.11 gwf2 gwi1 300; tail -f /dev/null'")
 gwf3 = net.addDocker('gwf3', ip='10.0.0.14', dimage=X, dcmd="sh -c 'cd /Projet-SDCI/docker && git pull && sh script_gf.sh 10.0.0.14 10.0.0.11 gwf3 gwi1 300; tail -f /dev/null'")
