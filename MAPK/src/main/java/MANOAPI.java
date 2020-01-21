@@ -32,12 +32,12 @@ class MANOAPI {
 
             String res;
             String line;
-            Main.logger(this.getClass().getSimpleName(), "RETOUR CREATION GW");
+            //Main.logger(this.getClass().getSimpleName(), "RETOUR CREATION GW");
             while ((line = reader.readLine()) != null) {
                 Pattern pattern = Pattern.compile("u'ip': u'10.0.0.[0-9]");
                 Matcher matcher = pattern.matcher(line);
 
-                Main.logger(this.getClass().getSimpleName(), "LINE: " + line);
+                //Main.logger(this.getClass().getSimpleName(), "LINE: " + line);
                 
                 if(matcher.find()){
                     String[] split_list = line.split("'",0);
@@ -71,13 +71,12 @@ class MANOAPI {
 
             String res;
             String line;
-            Main.logger(this.getClass().getSimpleName(), "RETOUR CREATION LB");
-
+            //Main.logger(this.getClass().getSimpleName(), "RETOUR CREATION LB");
             while ((line = reader.readLine()) != null) {
                 Pattern pattern = Pattern.compile("u'ip': u'10.0.0.[0-9]");
                 Matcher matcher = pattern.matcher(line);
 
-                Main.logger(this.getClass().getSimpleName(), "LINE: " + line);
+                //Main.logger(this.getClass().getSimpleName(), "LINE: " + line);
                 
                 if(matcher.find()){
                     String[] split_list = line.split("'",0);
