@@ -36,6 +36,7 @@ class MANOAPI {
             while ((line = reader.readLine()) != null) {
                 Pattern pattern = Pattern.compile("u'ip': u'10.0.0.[0-9]");
                 Matcher matcher = pattern.matcher(line);
+                Main.logger(this.getClass().getSimpleName(), "LINE: " + line);
                 
                 if(matcher.find()){
                     String[] split_list = line.split("'",0);
