@@ -1,11 +1,3 @@
-Comprendre MAPK
-Ajouter le monitoring aux symptomes
-Ajouter les appels REST a VIM EMU pour deployer la VNF master
-Ajouter l'appel REST a la VNF master pour choisir loadbalancer ou leakybucket
-
-
-
-
 krustylebot/repo:sdci => tout d'installe pour vim emu
 krustylebot/repo:sdci_python => juste python3 ajoute en plus
 krustylebot/repo:sdci_containernet => compilation du docker file containernet
